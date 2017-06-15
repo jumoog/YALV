@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:YALV.Common" xmlns:Properties="clr-namespace:YALV.Properties"
     xmlns:yalv="clr-namespace:YALV" Style="{StaticResource DefaultWindowStyle}"
     Height="650"
-    Width="1250"
+    Width="1150"
     Title="{Binding Path=WindowTitle, Mode=OneWay}"
     WindowStartupLocation="CenterScreen"
     AllowDrop="True">
@@ -24,7 +24,7 @@
             x:Key="StringEmptyToVisibilityConverter" />
         <converters:TimeDeltaDoubleToLocalizedStringConverter
             x:Key="TimeDeltaDoubleToLocalizedStringConverter" />
-        
+
         <ContextMenu
             x:Key="FilesListBoxContextMenu">
             <MenuItem
@@ -83,35 +83,29 @@
                 <!-- MENU -->
                 <local:MainMenu
                     x:Name="mainMenu" />
-
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition
-                            Width="Auto">
-                        </ColumnDefinition>
+                            Width="Auto"/>
+                        <ColumnDefinition/>
                         <ColumnDefinition
-                            Width="*">
-                        </ColumnDefinition>
-                        <ColumnDefinition
-                            Width="Auto">
-                        </ColumnDefinition>
+                            Width="Auto" MinWidth="866"/>
                     </Grid.ColumnDefinitions>
 
                     <!-- TOOLBAR -->
                     <local:MainToolbar
                         Style="{StaticResource DefaultToolbarStyle}"
-                        Grid.Column="0"
-                        Margin="5,0,0,0"
-                        HorizontalAlignment="Left" />
+                        Grid.Column="1"
+                        HorizontalAlignment="Left" Width="365" Grid.ColumnSpan="2" />
 
                     <StackPanel
                         Grid.Column="2"
-                        Margin="0,0,10,0"
+                        Margin="200,0,-328,0"
                         Orientation="Horizontal">
 
                         <!-- SELECTION -->
                         <GroupBox
-                            Margin="0,3,0,5"
+                            Margin="0,3,0,0"
                             Padding="4,6,4,1"
                             FontSize="9"
                             Header="{x:Static Properties:Resources.MainWindow_SelectionGroupBox_Header}"
@@ -123,7 +117,7 @@
                                 <StackPanel.Resources>
                                     <Style
                                         x:Key="tbCountStyle"
-                                        TargetType="TextBlock">
+                                        TargetType="{x:Type TextBlock}">
                                         <Setter
                                             Property="Margin"
                                             Value="0,3,0,0" />
@@ -147,42 +141,19 @@
                                         HorizontalAlignment="Center" />
                                     <TextBlock
                                         Style="{StaticResource tbCountStyle}">
-                                                <TextBlock.Text>
-                                                    <MultiBinding
-                                                        StringFormat="{}[ {0} / {1} ]">
-                                                        <Binding
+                                        <TextBlock.Text>
+                                            <MultiBinding
+                                                        StringFormat="[ {0} / {1} ]">
+                                                <Binding
                                                             Mode="OneWay"
                                                             Path="ItemsFilterCount" />
-                                                        <Binding
+                                                <Binding
                                                             Mode="OneWay"
                                                             Path="Items.Count" />
-                                                    </MultiBinding>
-                                                </TextBlock.Text>
+                                            </MultiBinding>
+                                        </TextBlock.Text>
                                     </TextBlock>
                                 </StackPanel>
-                                <!-- DEBUG -->
-                                <StackPanel
-                                    Margin="15,0,0,0"
-                                    Orientation="Vertical">
-                                    <ContentControl
-                                        Content="{StaticResource RadioButtonDebug}"
-                                        HorizontalAlignment="Center" />
-                                    <TextBlock
-                                        Style="{StaticResource tbCountStyle}">
-                                                <TextBlock.Text>
-                                                    <MultiBinding
-                                                        StringFormat="{}[ {0} / {1} ]">
-                                                        <Binding
-                                                            Mode="OneWay"
-                                                            Path="ItemsDebugFilterCount" />
-                                                        <Binding
-                                                            Mode="OneWay"
-                                                            Path="ItemsDebugCount" />
-                                                    </MultiBinding>
-                                                </TextBlock.Text>
-                                    </TextBlock>
-                                </StackPanel>
-                                <!-- INFO -->
                                 <StackPanel
                                     Margin="15,0,0,0"
                                     Orientation="Vertical">
@@ -191,17 +162,17 @@
                                         HorizontalAlignment="Center" />
                                     <TextBlock
                                         Style="{StaticResource tbCountStyle}">
-                                                <TextBlock.Text>
-                                                    <MultiBinding
-                                                        StringFormat="{}[ {0} / {1} ]">
-                                                        <Binding
+                                        <TextBlock.Text>
+                                            <MultiBinding
+                                                        StringFormat="[ {0} / {1} ]">
+                                                <Binding
                                                             Mode="OneWay"
                                                             Path="ItemsInfoFilterCount" />
-                                                        <Binding
+                                                <Binding
                                                             Mode="OneWay"
                                                             Path="ItemsInfoCount" />
-                                                    </MultiBinding>
-                                                </TextBlock.Text>
+                                            </MultiBinding>
+                                        </TextBlock.Text>
                                     </TextBlock>
                                 </StackPanel>
                                 <!-- WARN -->
@@ -213,17 +184,17 @@
                                         HorizontalAlignment="Center" />
                                     <TextBlock
                                         Style="{StaticResource tbCountStyle}">
-                                                <TextBlock.Text>
-                                                    <MultiBinding
-                                                        StringFormat="{}[ {0} / {1} ]">
-                                                        <Binding
+                                        <TextBlock.Text>
+                                            <MultiBinding
+                                                        StringFormat="[ {0} / {1} ]">
+                                                <Binding
                                                             Mode="OneWay"
                                                             Path="ItemsWarnFilterCount" />
-                                                        <Binding
+                                                <Binding
                                                             Mode="OneWay"
                                                             Path="ItemsWarnCount" />
-                                                    </MultiBinding>
-                                                </TextBlock.Text>
+                                            </MultiBinding>
+                                        </TextBlock.Text>
                                     </TextBlock>
                                 </StackPanel>
                                 <!-- SEVERE -->
@@ -235,17 +206,17 @@
                                         HorizontalAlignment="Center" />
                                     <TextBlock
                                         Style="{StaticResource tbCountStyle}">
-                                                <TextBlock.Text>
-                                                    <MultiBinding
-                                                        StringFormat="{}[ {0} / {1} ]">
-                                                        <Binding
+                                        <TextBlock.Text>
+                                            <MultiBinding
+                                                        StringFormat="[ {0} / {1} ]">
+                                                <Binding
                                                             Mode="OneWay"
                                                             Path="ItemsSevereFilterCount" />
-                                                        <Binding
+                                                <Binding
                                                             Mode="OneWay"
                                                             Path="ItemsSevereCount" />
-                                                    </MultiBinding>
-                                                </TextBlock.Text>
+                                            </MultiBinding>
+                                        </TextBlock.Text>
                                     </TextBlock>
                                 </StackPanel>
                                 <!-- FATAL -->
@@ -257,17 +228,17 @@
                                         HorizontalAlignment="Center" />
                                     <TextBlock
                                         Style="{StaticResource tbCountStyle}">
-                                                <TextBlock.Text>
-                                                    <MultiBinding
-                                                        StringFormat="{}[ {0} / {1} ]">
-                                                        <Binding
+                                        <TextBlock.Text>
+                                            <MultiBinding
+                                                        StringFormat="[ {0} / {1} ]">
+                                                <Binding
                                                             Mode="OneWay"
                                                             Path="ItemsFatalFilterCount" />
-                                                        <Binding
+                                                <Binding
                                                             Mode="OneWay"
                                                             Path="ItemsFatalCount" />
-                                                    </MultiBinding>
-                                                </TextBlock.Text>
+                                            </MultiBinding>
+                                        </TextBlock.Text>
                                     </TextBlock>
                                 </StackPanel>
                             </StackPanel>
@@ -295,44 +266,35 @@
                                             Value="10,0,0,0" />
                                     </Style>
                                 </StackPanel.Resources>
-
-                                <Border
-                                    Background="{StaticResource DebugLevelColor}">
-                                    <CheckBox
-                                        IsChecked="{Binding Path=ShowLevelDebug}"
-                                        Name="chkShowDebug"
-                                        ToolTip="DEBUG" />
-                                </Border>
-
                                 <Border
                                     Background="{StaticResource InfoLevelColor}">
                                     <CheckBox
-                                        IsChecked="{Binding Path=ShowLevelInfo}"
-                                        Name="chkShowInfo"
+                                        IsChecked="{Binding ShowLevelInfo}"
+                                        x:Name="chkShowInfo"
                                         ToolTip="INFO" />
                                 </Border>
 
                                 <Border
                                     Background="{StaticResource WarnLevelColor}">
                                     <CheckBox
-                                        IsChecked="{Binding Path=ShowLevelWarn}"
-                                        Name="chkShowWarn"
+                                        IsChecked="{Binding ShowLevelWarn}"
+                                        x:Name="chkShowWarn"
                                         ToolTip="WARN" />
                                 </Border>
 
                                 <Border
                                     Background="{StaticResource SevereLevelColor}">
                                     <CheckBox
-                                        IsChecked="{Binding Path=ShowLevelSevere}"
-                                        Name="chkShowSevere"
+                                        IsChecked="{Binding ShowLevelSevere}"
+                                        x:Name="chkShowSevere"
                                         ToolTip="SEVERE" />
                                 </Border>
 
                                 <Border
                                     Background="{StaticResource FatalLevelColor}">
                                     <CheckBox
-                                        IsChecked="{Binding Path=ShowLevelFatal}"
-                                        Name="chkShowFatal"
+                                        IsChecked="{Binding ShowLevelFatal}"
+                                        x:Name="chkShowFatal"
                                         ToolTip="FATAL" />
                                 </Border>
                             </StackPanel>
@@ -766,17 +728,6 @@
                                 Style="{StaticResource PanelBaseStyle}">
                                 <TextBlock
                                     Style="{StaticResource LabelBaseStyle}"
-                                    Text="{x:Static Properties:Resources.MainWindow_DetailsBox_Logger_Text}">
-                                </TextBlock>
-                                <TextBlock
-                                    Style="{StaticResource TextBlockBaseStyle}"
-                                    Text="{Binding Path=SelectedLogItem.Logger, Mode=OneWay}">
-                                </TextBlock>
-                            </StackPanel>
-                            <StackPanel
-                                Style="{StaticResource PanelBaseStyle}">
-                                <TextBlock
-                                    Style="{StaticResource LabelBaseStyle}"
                                     Text="{x:Static Properties:Resources.MainWindow_DetailsBox_Level_Text}">
                                 </TextBlock>
                                 <StackPanel
@@ -813,7 +764,7 @@
                                                 ConverterCulture="{x:Static yalv:MainWindow.ResolvedCulture}"
                                                 Path="SelectedLogItem.TimeStamp"
                                             />
-                                        
+
                                     </TextBlock.Text>
                                 </TextBlock>
                             </StackPanel>
@@ -929,7 +880,7 @@
                             Width="Auto">
                         </ColumnDefinition>
                         <ColumnDefinition
-                            Width="2.5*">
+                            Width="Auto">
                         </ColumnDefinition>
                     </Grid.ColumnDefinitions>
 
@@ -950,37 +901,6 @@
                                 BorderThickness="0,1"
                                 IsReadOnly="True"
                                 Text="{Binding Path=SelectedLogItem.Message, Mode=OneWay}"
-                                TextWrapping="Wrap">
-                            </TextBox>
-                        </ScrollViewer>
-                    </DockPanel>
-
-                    <GridSplitter
-                        Style="{StaticResource DefaultGridSplitterStyle}"
-                        Grid.Column="1"
-                        Margin="0,15,0,0"
-                        ResizeBehavior="PreviousAndNext"
-                        ResizeDirection="Columns"
-                        VerticalAlignment="Stretch">
-                    </GridSplitter>
-
-                    <DockPanel
-                        Grid.Column="2"
-                        LastChildFill="True">
-                        <TextBlock
-                            DockPanel.Dock="Top"
-                            Margin="1,0,0,0"
-                            FontWeight="DemiBold"
-                            Text="{x:Static Properties:Resources.MainWindow_DetailsBox_Throwable_Text}">
-                        </TextBlock>
-                        <ScrollViewer
-                            HorizontalScrollBarVisibility="Disabled"
-                            VerticalScrollBarVisibility="Auto">
-                            <TextBox
-                                BorderBrush="Silver"
-                                BorderThickness="0,1"
-                                IsReadOnly="True"
-                                Text="{Binding Path=SelectedLogItem.Throwable, Mode=OneWay}"
                                 TextWrapping="Wrap">
                             </TextBox>
                         </ScrollViewer>

@@ -49,44 +49,6 @@
                 Text="{x:Static Properties:Resources.Common_Components_MainToolbar_OpenFile_Text}" />
         </StackPanel>
     </Button>
-
-    <Button
-        Style="{StaticResource ToolbarButtonStyle}"
-        ToolTip="{x:Static Properties:Resources.Common_Components_MainToolbar_AddFile_Tooltip}"
-        Command="{Binding Path=CommandOpenFile}"
-        CommandParameter="ADD">
-        <StackPanel>
-            <Image
-                Source="/Resources/Icons/add_file.png" />
-            <TextBlock
-                Text="{x:Static Properties:Resources.Common_Components_MainToolbar_AddFile_Text}" />
-        </StackPanel>
-    </Button>
-
-    <Button
-        Style="{StaticResource ToolbarButtonStyle}"
-        ToolTip="{x:Static Properties:Resources.Common_Components_MainToolbar_SelectFolder_Tooltip}"
-        Command="{Binding Path=CommandSelectFolder}">
-        <StackPanel>
-            <Image
-                Source="/Resources/Icons/select_folder.png" />
-            <TextBlock
-                Text="{x:Static Properties:Resources.Common_Components_MainToolbar_SelectFolder_Text}" />
-        </StackPanel>
-    </Button>
-
-    <Button
-        Style="{StaticResource ToolbarButtonStyle}"
-        ToolTip="{x:Static Properties:Resources.Common_Components_MainToolbar_AddFolderPath_Tooltip}"
-        Command="{Binding Path=CommandSaveFolder}">
-        <StackPanel>
-            <Image
-                Source="/Resources/Icons/save_folder.png" />
-            <TextBlock
-                Text="{x:Static Properties:Resources.Common_Components_MainToolbar_AddFolderPath_Text}" />
-        </StackPanel>
-    </Button>
-
     <Separator
         Margin="2,0,12,0" />
 
