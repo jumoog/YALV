@@ -60,11 +60,11 @@ namespace YALV.Core.Domain
                 case "INFO":
                     LevelIndex =  LevelIndex.INFO;
                     break;
-                case "WARN":
-                    LevelIndex =  LevelIndex.WARN;
+                case "WARNING":
+                    LevelIndex =  LevelIndex.WARNING;
                     break;
-                case "ERROR":
-                    LevelIndex =  LevelIndex.ERROR;
+                case "SEVERE":
+                    LevelIndex =  LevelIndex.SEVERE;
                     break;
                 case "FATAL":
                     LevelIndex =  LevelIndex.FATAL;
@@ -83,8 +83,8 @@ namespace YALV.Core.Domain
         NONE = 0,
         DEBUG = 1,
         INFO = 2,
-        WARN = 3,
-        ERROR = 4,
+        WARNING = 3,
+        SEVERE = 4,
         FATAL = 5
     }
 }

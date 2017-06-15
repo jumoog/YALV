@@ -11,7 +11,7 @@ namespace YALV.Common.Converters
         private SolidColorBrush debugColor = Application.Current.FindResource("DebugLevelColor") as SolidColorBrush;
         private SolidColorBrush infoColor = Application.Current.FindResource("InfoLevelColor") as SolidColorBrush;
         private SolidColorBrush warnColor = Application.Current.FindResource("WarnLevelColor") as SolidColorBrush;
-        private SolidColorBrush errorColor = Application.Current.FindResource("ErrorLevelColor") as SolidColorBrush;
+        private SolidColorBrush severeColor = Application.Current.FindResource("SevereLevelColor") as SolidColorBrush;
         private SolidColorBrush fatalColor = Application.Current.FindResource("FatalLevelColor") as SolidColorBrush;
 
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
@@ -29,7 +29,7 @@ namespace YALV.Common.Converters
                 case 3:
                     return warnColor ?? Brushes.Transparent;
                 case 4:
-                    return errorColor ?? Brushes.Transparent;
+                    return severeColor ?? Brushes.Transparent;
                 case 5:
                     return fatalColor ?? Brushes.Transparent;
                 default:

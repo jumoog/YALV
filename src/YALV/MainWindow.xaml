@@ -226,12 +226,12 @@
                                                 </TextBlock.Text>
                                     </TextBlock>
                                 </StackPanel>
-                                <!-- ERROR -->
+                                <!-- SEVERE -->
                                 <StackPanel
                                     Margin="15,0,0,0"
                                     Orientation="Vertical">
                                     <ContentControl
-                                        Content="{StaticResource RadioButtonError}"
+                                        Content="{StaticResource RadioButtonServe}"
                                         HorizontalAlignment="Center" />
                                     <TextBlock
                                         Style="{StaticResource tbCountStyle}">
@@ -240,10 +240,10 @@
                                                         StringFormat="{}[ {0} / {1} ]">
                                                         <Binding
                                                             Mode="OneWay"
-                                                            Path="ItemsErrorFilterCount" />
+                                                            Path="ItemsSevereFilterCount" />
                                                         <Binding
                                                             Mode="OneWay"
-                                                            Path="ItemsErrorCount" />
+                                                            Path="ItemsSevereCount" />
                                                     </MultiBinding>
                                                 </TextBlock.Text>
                                     </TextBlock>
@@ -321,11 +321,11 @@
                                 </Border>
 
                                 <Border
-                                    Background="{StaticResource ErrorLevelColor}">
+                                    Background="{StaticResource SevereLevelColor}">
                                     <CheckBox
-                                        IsChecked="{Binding Path=ShowLevelError}"
-                                        Name="chkShowError"
-                                        ToolTip="ERROR" />
+                                        IsChecked="{Binding Path=ShowLevelSevere}"
+                                        Name="chkShowSevere"
+                                        ToolTip="SEVERE" />
                                 </Border>
 
                                 <Border
@@ -832,55 +832,11 @@
                                 Style="{StaticResource PanelBaseStyle}">
                                 <TextBlock
                                     Style="{StaticResource LabelBaseStyle}"
-                                    Text="{x:Static Properties:Resources.MainWindow_DetailsBox_MachineName_Text}">
-                                </TextBlock>
-                                <TextBlock
-                                    Style="{StaticResource TextBlockBaseStyle}"
-                                    Text="{Binding Path=SelectedLogItem.MachineName, Mode=OneWay}">
-                                </TextBlock>
-                            </StackPanel>
-                            <StackPanel
-                                Style="{StaticResource PanelBaseStyle}">
-                                <TextBlock
-                                    Style="{StaticResource LabelBaseStyle}"
-                                    Text="{x:Static Properties:Resources.MainWindow_DetailsBox_HostName_Text}">
-                                </TextBlock>
-                                <TextBlock
-                                    Style="{StaticResource TextBlockBaseStyle}"
-                                    Text="{Binding Path=SelectedLogItem.HostName, Mode=OneWay}">
-                                </TextBlock>
-                            </StackPanel>
-                            <StackPanel
-                                Style="{StaticResource PanelBaseStyle}">
-                                <TextBlock
-                                    Style="{StaticResource LabelBaseStyle}"
-                                    Text="{x:Static Properties:Resources.MainWindow_DetailsBox_UserName_Text}">
-                                </TextBlock>
-                                <TextBlock
-                                    Style="{StaticResource TextBlockBaseStyle}"
-                                    Text="{Binding Path=SelectedLogItem.UserName, Mode=OneWay}">
-                                </TextBlock>
-                            </StackPanel>
-                            <StackPanel
-                                Style="{StaticResource PanelBaseStyle}">
-                                <TextBlock
-                                    Style="{StaticResource LabelBaseStyle}"
                                     Text="{x:Static Properties:Resources.MainWindow_DetailsBox_Application_Text}">
                                 </TextBlock>
                                 <TextBlock
                                     Style="{StaticResource TextBlockBaseStyle}"
                                     Text="{Binding Path=SelectedLogItem.App, Mode=OneWay}">
-                                </TextBlock>
-                            </StackPanel>
-                            <StackPanel
-                                Style="{StaticResource PanelBaseStyle}">
-                                <TextBlock
-                                    Style="{StaticResource LabelBaseStyle}"
-                                    Text="{x:Static Properties:Resources.MainWindow_DetailsBox_Thread_Text}">
-                                </TextBlock>
-                                <TextBlock
-                                    Style="{StaticResource TextBlockBaseStyle}"
-                                    Text="{Binding Path=SelectedLogItem.Thread, Mode=OneWay}">
                                 </TextBlock>
                             </StackPanel>
                         </StackPanel>

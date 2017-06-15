@@ -76,8 +76,8 @@
         Color="Moccasin"
         PresentationOptions:Freeze="True" />
     <SolidColorBrush
-        x:Key="ErrorLevelColor"
-        Color="Salmon"
+        x:Key="SevereLevelColor"
+        Color="Magenta"
         PresentationOptions:Freeze="True" />
     <SolidColorBrush
         x:Key="FatalLevelColor"
@@ -486,13 +486,13 @@
                     Value="{StaticResource WarnLevelColor}" />
             </DataTrigger>
 
-            <!-- Error -->
+            <!-- SEVERE -->
             <DataTrigger
                 Binding="{Binding Path=LevelIndex, Mode=OneWay}"
                 Value="4">
                 <Setter
                     Property="Background"
-                    Value="{StaticResource ErrorLevelColor}" />
+                    Value="{StaticResource SevereLevelColor}" />
             </DataTrigger>
 
             <!-- Fatal -->
@@ -616,17 +616,17 @@
 
     <Border
         Style="{StaticResource borderRbStyle}"
-        x:Key="RadioButtonError"
-        Background="{StaticResource ErrorLevelColor}">
+        x:Key="RadioButtonServe"
+        Background="{StaticResource SevereLevelColor}">
         <DockPanel
             LastChildFill="True">
             <RadioButton
                 DockPanel.Dock="Left"
                 GroupName="Selection"
-                IsChecked="{Binding Path=SelectError}">
+                IsChecked="{Binding Path=SelectSevere}">
                 <TextBlock
                     Style="{StaticResource tbRbStyle}"
-                    Text="ERROR" />
+                    Text="SEVERE" />
             </RadioButton>
         </DockPanel>
     </Border>

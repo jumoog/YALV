@@ -47,8 +47,8 @@ namespace YALV.ViewModel
             IsLoading = false;
 
             _selectAll = true;
-            _selectDebug = _selectInfo = _selectWarn = _selectError = _selectFatal = false;
-            _showLevelDebug = _showLevelInfo = _showLevelWarn = _showLevelError = _showLevelFatal = true;
+            _selectDebug = _selectInfo = _selectWarn = _selectSevere = _selectFatal = false;
+            _showLevelDebug = _showLevelInfo = _showLevelWarn = _showLevelSevere = _showLevelFatal = true;
 
             bkLoader = new BackgroundWorker();
             bkLoader.WorkerSupportsCancellation = true;
@@ -747,22 +747,22 @@ namespace YALV.ViewModel
         /// <summary>
         /// ShowLevelError Property
         /// </summary>
-        public bool ShowLevelError
+        public bool ShowLevelSevere
         {
-            get { return _showLevelError; }
+            get { return _showLevelSevere; }
             set
             {
-                if (value != _showLevelError)
+                if (value != _showLevelSevere)
                 {
-                    _showLevelError = value;
-                    RaisePropertyChanged(PROP_ShowLevelError);
+                    _showLevelSevere = value;
+                    RaisePropertyChanged(PROP_ShowLevelSevere);
                     resetLevelSelection();
                     RefreshView();
                 }
             }
         }
-        private bool _showLevelError;
-        public static string PROP_ShowLevelError = "ShowLevelError";
+        private bool _showLevelSevere;
+        public static string PROP_ShowLevelSevere = "ShowLevelSevere";
 
         /// <summary>
         /// ShowLevelFatal Property
@@ -799,7 +799,7 @@ namespace YALV.ViewModel
 
                     if (_selectAll)
                     {
-                        _showLevelDebug = _showLevelInfo = _showLevelWarn = _showLevelError = _showLevelFatal = true;
+                        _showLevelDebug = _showLevelInfo = _showLevelWarn = _showLevelSevere = _showLevelFatal = true;
                         refreshCheckBoxBinding();
                         RefreshView();
                     }
@@ -824,7 +824,7 @@ namespace YALV.ViewModel
 
                     if (_selectDebug)
                     {
-                        _showLevelInfo = _showLevelWarn = _showLevelError = _showLevelFatal = false;
+                        _showLevelInfo = _showLevelWarn = _showLevelSevere = _showLevelFatal = false;
                         _showLevelDebug = true;
                         refreshCheckBoxBinding();
                         RefreshView();
@@ -850,7 +850,7 @@ namespace YALV.ViewModel
 
                     if (_selectInfo)
                     {
-                        _showLevelDebug = _showLevelWarn = _showLevelError = _showLevelFatal = false;
+                        _showLevelDebug = _showLevelWarn = _showLevelSevere = _showLevelFatal = false;
                         _showLevelInfo = true;
                         refreshCheckBoxBinding();
                         RefreshView();
@@ -876,7 +876,7 @@ namespace YALV.ViewModel
 
                     if (_selectWarn)
                     {
-                        _showLevelDebug = _showLevelInfo = _showLevelError = _showLevelFatal = false;
+                        _showLevelDebug = _showLevelInfo = _showLevelSevere = _showLevelFatal = false;
                         _showLevelWarn = true;
                         refreshCheckBoxBinding();
                         RefreshView();
@@ -888,30 +888,30 @@ namespace YALV.ViewModel
         public static string PROP_SelectWarn = "SelectWarn";
 
         /// <summary>
-        /// SelectError Property
+        /// SelectSevere Property
         /// </summary>
-        public bool SelectError
+        public bool SelectSevere
         {
-            get { return _selectError; }
+            get { return _selectSevere; }
             set
             {
-                if (value != _selectError)
+                if (value != _selectSevere)
                 {
-                    _selectError = value;
-                    RaisePropertyChanged(PROP_SelectError);
+                    _selectSevere = value;
+                    RaisePropertyChanged(PROP_SelectSevere);
 
-                    if (_selectError)
+                    if (_selectSevere)
                     {
                         _showLevelDebug = _showLevelInfo = _showLevelWarn = _showLevelFatal = false;
-                        _showLevelError = true;
+                        _showLevelSevere = true;
                         refreshCheckBoxBinding();
                         RefreshView();
                     }
                 }
             }
         }
-        private bool _selectError;
-        public static string PROP_SelectError = "SelectError";
+        private bool _selectSevere;
+        public static string PROP_SelectSevere = "SelectSevere";
 
         /// <summary>
         /// SelectFatal Property
@@ -928,7 +928,7 @@ namespace YALV.ViewModel
 
                     if (_selectFatal)
                     {
-                        _showLevelDebug = _showLevelInfo = _showLevelWarn = _showLevelError = false;
+                        _showLevelDebug = _showLevelInfo = _showLevelWarn = _showLevelSevere = false;
                         _showLevelFatal = true;
                         refreshCheckBoxBinding();
                         RefreshView();
@@ -1048,7 +1048,7 @@ namespace YALV.ViewModel
             RaisePropertyChanged(PROP_ShowLevelDebug);
             RaisePropertyChanged(PROP_ShowLevelInfo);
             RaisePropertyChanged(PROP_ShowLevelWarn);
-            RaisePropertyChanged(PROP_ShowLevelError);
+            RaisePropertyChanged(PROP_ShowLevelSevere);
             RaisePropertyChanged(PROP_ShowLevelFatal);
         }
 
@@ -1058,7 +1058,7 @@ namespace YALV.ViewModel
             SelectDebug = false;
             SelectInfo = false;
             SelectWarn = false;
-            SelectError = false;
+            SelectSevere = false;
             SelectFatal = false;
         }
 
@@ -1353,14 +1353,14 @@ namespace YALV.ViewModel
                     new ColumnItem("TimeStamp", 120, null, CellAlignment.CENTER, GlobalHelper.DisplayDateTimeFormat){Header = Resources.MainWindowVM_InitDataGrid_TimeStampColumn_Header},
                     new ColumnItem("Level", null, 50, CellAlignment.CENTER){Header = Resources.MainWindowVM_InitDataGrid_LevelColumn_Header},
                     new ColumnItem("Message", null, 300){Header = Resources.MainWindowVM_InitDataGrid_MessageColumn_Header},
-                    new ColumnItem("Logger", 150, null){Header = Resources.MainWindowVM_InitDataGrid_LoggerColumn_Header},
-                    new ColumnItem("MachineName", 110, null, CellAlignment.CENTER){Header = Resources.MainWindowVM_InitDataGrid_MachineNameColumn_Header},
-                    new ColumnItem("HostName", 110, null, CellAlignment.CENTER){Header = Resources.MainWindowVM_InitDataGrid_HostNameColumn_Header},
-                    new ColumnItem("UserName", 110, null, CellAlignment.CENTER){Header = Resources.MainWindowVM_InitDataGrid_UserNameColumn_Header},
+                    //new ColumnItem("Logger", 150, null){Header = Resources.MainWindowVM_InitDataGrid_LoggerColumn_Header},
+                    //new ColumnItem("MachineName", 110, null, CellAlignment.CENTER){Header = Resources.MainWindowVM_InitDataGrid_MachineNameColumn_Header},
+                    //new ColumnItem("HostName", 110, null, CellAlignment.CENTER){Header = Resources.MainWindowVM_InitDataGrid_HostNameColumn_Header},
+                    //new ColumnItem("UserName", 110, null, CellAlignment.CENTER){Header = Resources.MainWindowVM_InitDataGrid_UserNameColumn_Header},
                     new ColumnItem("App", 150, null){Header = Resources.MainWindowVM_InitDataGrid_AppColumn_Header},
-                    new ColumnItem("Thread", 44, null, CellAlignment.CENTER){Header = Resources.MainWindowVM_InitDataGrid_ThreadColumn_Header},
-                    new ColumnItem("Class", null, 300){Header = Resources.MainWindowVM_InitDataGrid_ClassColumn_Header},
-                    new ColumnItem("Method", 200, null){Header = Resources.MainWindowVM_InitDataGrid_MethodColumn_Header}
+                    //new ColumnItem("Thread", 44, null, CellAlignment.CENTER){Header = Resources.MainWindowVM_InitDataGrid_ThreadColumn_Header},
+                    //new ColumnItem("Class", null, 300){Header = Resources.MainWindowVM_InitDataGrid_ClassColumn_Header},
+                    //new ColumnItem("Method", 200, null){Header = Resources.MainWindowVM_InitDataGrid_MethodColumn_Header}
                     //new ColumnItem("Delta", 60, null, CellAlignment.CENTER, null, "Δ"),
                     //new ColumnItem("Path", 50)
                 };
@@ -1393,10 +1393,10 @@ namespace YALV.ViewModel
                         return ShowLevelDebug;
                     case LevelIndex.INFO:
                         return ShowLevelInfo;
-                    case LevelIndex.WARN:
+                    case LevelIndex.WARNING:
                         return ShowLevelWarn;
-                    case LevelIndex.ERROR:
-                        return ShowLevelError;
+                    case LevelIndex.SEVERE:
+                        return ShowLevelSevere;
                     case LevelIndex.FATAL:
                         return ShowLevelFatal;
                 }
@@ -1454,19 +1454,19 @@ namespace YALV.ViewModel
         public static string PROP_ItemsWarnCount = "ItemsWarnCount";
 
         /// <summary>
-        /// ItemsErrorCount Property
+        /// ItemsSevereCount Property
         /// </summary>
-        public int ItemsErrorCount
+        public int ItemsSevereCount
         {
-            get { return _itemsErrorCount; }
+            get { return _itemsSevereCount; }
             set
             {
-                _itemsErrorCount = value;
-                RaisePropertyChanged(PROP_ItemsErrorCount);
+                _itemsSevereCount = value;
+                RaisePropertyChanged(PROP_ItemsSevereCount);
             }
         }
-        private int _itemsErrorCount;
-        public static string PROP_ItemsErrorCount = "ItemsErrorCount";
+        private int _itemsSevereCount;
+        public static string PROP_ItemsSevereCount = "ItemsSevereCount";
 
         /// <summary>
         /// ItemsFatalCount Property
@@ -1529,19 +1529,19 @@ namespace YALV.ViewModel
         public static string PROP_ItemsWarnFilterCount = "ItemsWarnFilterCount";
 
         /// <summary>
-        /// ItemsErrorFilterCount Property
+        /// ItemsSevereFilterCount Property
         /// </summary>
-        public int ItemsErrorFilterCount
+        public int ItemsSevereFilterCount
         {
-            get { return _itemsErrorFilterCount; }
+            get { return _itemsSevereFilterCount; }
             set
             {
-                _itemsErrorFilterCount = value;
-                RaisePropertyChanged(PROP_ItemsErrorFilterCount);
+                _itemsSevereFilterCount = value;
+                RaisePropertyChanged(PROP_ItemsSevereFilterCount);
             }
         }
-        private int _itemsErrorFilterCount;
-        public static string PROP_ItemsErrorFilterCount = "ItemsErrorFilterCount";
+        private int _itemsSevereFilterCount;
+        public static string PROP_ItemsSevereFilterCount = "ItemsSevereFilterCount";
 
         /// <summary>
         /// ItemsFatalFilterCount Property
@@ -1584,11 +1584,11 @@ namespace YALV.ViewModel
                               select it).Count();
 
             ItemsWarnCount = (from it in Items
-                              where it.Level.Equals("WARN", StringComparison.OrdinalIgnoreCase)
+                              where it.Level.Equals("WARNING", StringComparison.OrdinalIgnoreCase)
                               select it).Count();
 
-            ItemsErrorCount = (from it in Items
-                               where it.Level.Equals("ERROR", StringComparison.OrdinalIgnoreCase)
+            ItemsSevereCount = (from it in Items
+                               where it.Level.Equals("SEVERE", StringComparison.OrdinalIgnoreCase)
                                select it).Count();
 
             ItemsFatalCount = (from it in Items
@@ -1616,11 +1616,11 @@ namespace YALV.ViewModel
                                             select it).Count();
 
                     ItemsWarnFilterCount = (from it in fltList
-                                            where it.Level.Equals("WARN", StringComparison.OrdinalIgnoreCase)
+                                            where it.Level.Equals("WARNING", StringComparison.OrdinalIgnoreCase)
                                             select it).Count();
 
-                    ItemsErrorFilterCount = (from it in fltList
-                                             where it.Level.Equals("ERROR", StringComparison.OrdinalIgnoreCase)
+                    ItemsSevereFilterCount = (from it in fltList
+                                             where it.Level.Equals("SEVERE", StringComparison.OrdinalIgnoreCase)
                                              select it).Count();
 
                     ItemsFatalFilterCount = (from it in fltList
@@ -1634,7 +1634,7 @@ namespace YALV.ViewModel
                 ItemsDebugFilterCount = 0;
                 ItemsInfoFilterCount = 0;
                 ItemsWarnFilterCount = 0;
-                ItemsErrorFilterCount = 0;
+                ItemsSevereFilterCount = 0;
                 ItemsFatalFilterCount = 0;
             }
         }
