@@ -147,7 +147,7 @@ namespace YALV.Core.Providers
 
             IDbDataParameter parameter = command.CreateParameter();
             parameter.ParameterName = "@number";
-            parameter.Value = number;
+            parameter.Value = String.Format("%{0}%", number);
             command.Parameters.Add(parameter);
         }
 

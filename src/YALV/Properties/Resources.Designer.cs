@@ -61,99 +61,6 @@ namespace YALV.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die About ähnelt.
-        /// </summary>
-        public static string About_AboutGroupBox_Header {
-            get {
-                return ResourceManager.GetString("About_AboutGroupBox_Header", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Credits ähnelt.
-        /// </summary>
-        public static string About_CreditsGroupBox_Header {
-            get {
-                return ResourceManager.GetString("About_CreditsGroupBox_Header", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die YALV! is a log viewer for Log4Net that allows to compare multiple log files simultaneously.
-        ///
-        ///MAIN FEATURES:
-        ///- Log files merging
-        ///- Dynamic filtering
-        ///- Dynamic show/hide log levels
-        ///- Save favorite log folders
-        ///- Open most recently used files
-        ///- Column sorting
-        ///
-        ///Log4Net config file must be setup with XmlLayoutSchemaLog4j layout; just need a few lines in your application config file to configure it to use this format (see examples on right).
-        ///
-        ///It is a WPF Application based on .NET Framework 4.0 and written with C#  [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
-        /// </summary>
-        public static string About_Description {
-            get {
-                return ResourceManager.GetString("About_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die YALV! - Yet Another Log4Net Viewer ähnelt.
-        /// </summary>
-        public static string About_Header_Text {
-            get {
-                return ResourceManager.GetString("About_Header_Text", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Log4Net Configuration ähnelt.
-        /// </summary>
-        public static string About_Log4NetConfigurationGroupbox_Header {
-            get {
-                return ResourceManager.GetString("About_Log4NetConfigurationGroupbox_Header", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Sample 1: ähnelt.
-        /// </summary>
-        public static string About_Log4NetConfigurationGroupbox_Sample1_Title {
-            get {
-                return ResourceManager.GetString("About_Log4NetConfigurationGroupbox_Sample1_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Sample 2: ähnelt.
-        /// </summary>
-        public static string About_Log4NetConfigurationGroupbox_Sample2_Title {
-            get {
-                return ResourceManager.GetString("About_Log4NetConfigurationGroupbox_Sample2_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die YALV! - About ähnelt.
-        /// </summary>
-        public static string About_Title {
-            get {
-                return ResourceManager.GetString("About_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Version {0} ähnelt.
-        /// </summary>
-        public static string About_Version_Text {
-            get {
-                return ResourceManager.GetString("About_Version_Text", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Name ähnelt.
         /// </summary>
         public static string AddFolderPath_Grid_NameColumn_Name {
@@ -294,15 +201,6 @@ namespace YALV.Properties {
         public static string Common_Components_AddRemoveToolbar_SaveList_Tooltip {
             get {
                 return ResourceManager.GetString("Common_Components_AddRemoveToolbar_SaveList_Tooltip", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die About ähnelt.
-        /// </summary>
-        public static string Common_Components_MainMenu_AboutMenu_Header {
-            get {
-                return ResourceManager.GetString("Common_Components_MainMenu_AboutMenu_Header", resourceCulture);
             }
         }
         
@@ -937,7 +835,7 @@ namespace YALV.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die YALV! - Yet Another Log4Net Viewer ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Innovis WinCC OA Logviewer ähnelt.
         /// </summary>
         public static string MainWindow_Title {
             get {

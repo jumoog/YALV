@@ -225,9 +225,6 @@
   <data name="Common_Components_MainMenu_ViewMenu_DeleteFile_Header" xml:space="preserve">
     <value>Delete File</value>
   </data>
-  <data name="Common_Components_MainMenu_AboutMenu_Header" xml:space="preserve">
-    <value>About</value>
-  </data>
   <data name="Common_Components_MainToolbar_OpenFile_ToolTip" xml:space="preserve">
     <value>Open File...</value>
   </data>
@@ -379,7 +376,7 @@
     <value>SELECTION</value>
   </data>
   <data name="MainWindow_Title" xml:space="preserve">
-    <value>YALV! - Yet Another Log4Net Viewer</value>
+    <value>Innovis WinCC OA Logviewer</value>
   </data>
   <data name="SaveFolderPath_Title" xml:space="preserve">
     <value>YALV! - Edit Favorites</value>
@@ -389,27 +386,6 @@
   </data>
   <data name="AddFolderPath_Grid_PathColumn_Name" xml:space="preserve">
     <value>Path</value>
-  </data>
-  <data name="About_Title" xml:space="preserve">
-    <value>YALV! - About</value>
-  </data>
-  <data name="About_Header_Text" xml:space="preserve">
-    <value>YALV! - Yet Another Log4Net Viewer</value>
-  </data>
-  <data name="About_AboutGroupBox_Header" xml:space="preserve">
-    <value>About</value>
-  </data>
-  <data name="About_CreditsGroupBox_Header" xml:space="preserve">
-    <value>Credits</value>
-  </data>
-  <data name="About_Log4NetConfigurationGroupbox_Header" xml:space="preserve">
-    <value>Log4Net Configuration</value>
-  </data>
-  <data name="About_Log4NetConfigurationGroupbox_Sample1_Title" xml:space="preserve">
-    <value>Sample 1:</value>
-  </data>
-  <data name="About_Log4NetConfigurationGroupbox_Sample2_Title" xml:space="preserve">
-    <value>Sample 2:</value>
   </data>
   <data name="FilteredGridManager_BuildDataGrid_FilterTextBox_Tooltip" xml:space="preserve">
     <value>Filter {0}</value>
@@ -503,25 +479,6 @@
   </data>
   <data name="CircularProgressBar_CircularProgressBar_BusyText" xml:space="preserve">
     <value>Loading...</value>
-  </data>
-  <data name="About_Version_Text" xml:space="preserve">
-    <value>Version {0}</value>
-    <comment>0 - FileVersionInfo</comment>
-  </data>
-  <data name="About_Description" xml:space="preserve">
-    <value>YALV! is a log viewer for Log4Net that allows to compare multiple log files simultaneously.
-
-MAIN FEATURES:
-- Log files merging
-- Dynamic filtering
-- Dynamic show/hide log levels
-- Save favorite log folders
-- Open most recently used files
-- Column sorting
-
-Log4Net config file must be setup with XmlLayoutSchemaLog4j layout; just need a few lines in your application config file to configure it to use this format (see examples on right).
-
-It is a WPF Application based on .NET Framework 4.0 and written with C# language.</value>
   </data>
   <data name="MainWindow_FilesListBoxContextMenu_SelectAll_Header" xml:space="preserve">
     <value>Select All Files</value>

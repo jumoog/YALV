@@ -36,7 +36,6 @@ namespace YALV.ViewModel
             CommandSelectAllFiles = new CommandRelay(commandSelectAllFilesExecute, commandSelectAllFilesCanExecute);
             CommandIncreaseInterval = new CommandRelay(commandIncreaseIntervalExecute, p => true);
             CommandDecreaseInterval = new CommandRelay(commandDecreaseIntervalExecute, p => true);
-            CommandAbout = new CommandRelay(commandAboutExecute, p => true);
 
             FileList = new ObservableCollection<FileItem>();
             Items = new ObservableCollection<LogItem>();
@@ -147,11 +146,6 @@ namespace YALV.ViewModel
         /// SelectAllFiles Command
         /// </summary>
         public ICommandAncestor CommandSelectAllFiles { get; protected set; }
-
-        /// <summary>
-        /// About Command
-        /// </summary>
-        public ICommandAncestor CommandAbout { get; protected set; }
 
         protected virtual object commandExitExecute(object parameter)
         {
@@ -446,13 +440,6 @@ namespace YALV.ViewModel
         protected virtual bool commandSelectAllFilesCanExecute(object parameter)
         {
             return IsFileSelectionEnabled && FileList.Count > 0;
-        }
-
-        protected virtual object commandAboutExecute(object parameter)
-        {
-            var win = new About() { Owner = _callingWin as Window };
-            win.ShowDialog();
-            return null;
         }
 
         #endregion

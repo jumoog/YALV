@@ -75,8 +75,4 @@
             InputGestureText="DEL">
         </MenuItem>
     </MenuItem>
-    <MenuItem
-        Header="{x:Static Properties:Resources.Common_Components_MainMenu_AboutMenu_Header}"
-        Command="{Binding Path=CommandAbout}">
-    </MenuItem>
 </Menu>
