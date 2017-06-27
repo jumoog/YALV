@@ -303,8 +303,8 @@
   <data name="Common_Components_AddRemoveMenu_FileMenu_Exit_Header" xml:space="preserve">
     <value>Exit</value>
   </data>
-  <data name="MainWindow_DetailsBox_Logger_Text" xml:space="preserve">
-    <value>Logger:</value>
+  <data name="MainWindow_DetailsBox_Number_Text" xml:space="preserve">
+    <value>Number:</value>
   </data>
   <data name="MainWindow_DetailsBox_Level_Text" xml:space="preserve">
     <value>Level:</value>
@@ -462,7 +462,7 @@
   <data name="MainWindowVM_InitDataGrid_MessageColumn_Header" xml:space="preserve">
     <value>Message</value>
   </data>
-  <data name="MainWindowVM_InitDataGrid_LoggerColumn_Header" xml:space="preserve">
+  <data name="MainWindowVM_InitDataGrid_NumberColumn_Header" xml:space="preserve">
     <value>Logger</value>
   </data>
   <data name="MainWindowVM_InitDataGrid_MachineNameColumn_Header" xml:space="preserve">

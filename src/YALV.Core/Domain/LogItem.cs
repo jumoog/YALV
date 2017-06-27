@@ -10,7 +10,7 @@ namespace YALV.Core.Domain
         public DateTime TimeStamp { get; set; }
         //public string Delta { get; set; }
         public double? Delta { get; set; }
-        public string Logger { get; set; }
+        public string Number { get; set; }
         public string Thread { get; set; }
         public string Message { get; set; }
         public string MachineName { get; set; }

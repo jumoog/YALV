@@ -32,7 +32,7 @@ namespace YALV.Core.Providers
 
                             var entry = new LogItem { Id = entryId, Path = dataSource };
 
-                            entry.Logger = xmlTextReader.GetAttribute("logger");
+                            entry.Number = xmlTextReader.GetAttribute("number");
 
                             entry.TimeStamp = date.AddMilliseconds(Convert.ToDouble(xmlTextReader.GetAttribute("timestamp"))).ToLocalTime();
                             if (prevTimeStamp.HasValue)
@@ -156,8 +156,8 @@ namespace YALV.Core.Providers
                 if (!entry.Message.ToUpper().Contains(parameters.Message.ToUpper()))
                     accept = false;
 
-            if (!String.IsNullOrEmpty(parameters.Logger))
-                if (!entry.Logger.ToUpper().Contains(parameters.Logger.ToUpper()))
+            if (!String.IsNullOrEmpty(parameters.Number))
+                if (!entry.Number.ToUpper().Contains(parameters.Number.ToUpper()))
                     accept = false;
 
             return accept;

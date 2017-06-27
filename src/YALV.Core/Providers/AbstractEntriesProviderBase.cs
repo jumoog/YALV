@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using YALV.Core.Domain;
 
@@ -24,7 +25,7 @@ namespace YALV.Core.Providers
                     using (IDbCommand command = connection.CreateCommand())
                     {
                         command.CommandText =
-                            @"select caller, date, level, logger, thread, message, exception from log where date >= @date";
+                            @"select caller, date, level, number, thread, message, exception from log where date >= @date";
 
                         IDbDataParameter parameter = command.CreateParameter();
                         parameter.ParameterName = "@date";
@@ -57,7 +58,7 @@ namespace YALV.Core.Providers
                                 break;
                         }
 
-                        AddLoggerClause(command, filter.Logger);
+                        AddNumberClause(command, filter.Number);
                         AddThreadClause(command, filter.Thread);
                         AddMessageClause(command, filter.Message);
 
@@ -89,7 +90,7 @@ namespace YALV.Core.Providers
 
                                 DateTime timeStamp = reader.GetDateTime(1);
                                 string level = reader.GetString(2);
-                                string logger = reader.GetString(3);
+                                string number = reader.GetString(3);
                                 string thread = reader.GetString(4);
                                 string message = reader.GetString(5);
                                 string exception = reader.GetString(6);
@@ -100,7 +101,7 @@ namespace YALV.Core.Providers
                                     TimeStamp = timeStamp,
                                     Level = level,
                                     Thread = thread,
-                                    Logger = logger,
+                                    Number = number,
                                     Message = message,
                                     Throwable = exception,
                                     MachineName = machineName,
@@ -135,18 +136,18 @@ namespace YALV.Core.Providers
             command.Parameters.Add(parameter);
         }
 
-        private static void AddLoggerClause(IDbCommand command, string logger)
+        private static void AddNumberClause(IDbCommand command, string number)
         {
             if (command == null)
                 throw new ArgumentNullException("command");
-            if (String.IsNullOrEmpty(logger))
+            if (String.IsNullOrEmpty(number))
                 return;
 
-            command.CommandText += @" and logger like @logger";
+            command.CommandText += @" and number like @number";
 
             IDbDataParameter parameter = command.CreateParameter();
-            parameter.ParameterName = "@logger";
-            parameter.Value = String.Format("%{0}%", logger);
+            parameter.ParameterName = "@number";
+            parameter.Value = number;
             command.Parameters.Add(parameter);
         }
 

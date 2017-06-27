@@ -1353,7 +1353,7 @@ namespace YALV.ViewModel
                     new ColumnItem("TimeStamp", 120, null, CellAlignment.CENTER, GlobalHelper.DisplayDateTimeFormat){Header = Resources.MainWindowVM_InitDataGrid_TimeStampColumn_Header},
                     new ColumnItem("Level", null, 50, CellAlignment.CENTER){Header = Resources.MainWindowVM_InitDataGrid_LevelColumn_Header},
                     new ColumnItem("Message", null, 300){Header = Resources.MainWindowVM_InitDataGrid_MessageColumn_Header},
-                    //new ColumnItem("Logger", 150, null){Header = Resources.MainWindowVM_InitDataGrid_LoggerColumn_Header},
+                    new ColumnItem("Number", 150, null){Header = Resources.MainWindowVM_InitDataGrid_NumberColumn_Header},
                     //new ColumnItem("MachineName", 110, null, CellAlignment.CENTER){Header = Resources.MainWindowVM_InitDataGrid_MachineNameColumn_Header},
                     //new ColumnItem("HostName", 110, null, CellAlignment.CENTER){Header = Resources.MainWindowVM_InitDataGrid_HostNameColumn_Header},
                     //new ColumnItem("UserName", 110, null, CellAlignment.CENTER){Header = Resources.MainWindowVM_InitDataGrid_UserNameColumn_Header},

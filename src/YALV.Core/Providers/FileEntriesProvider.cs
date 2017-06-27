@@ -38,7 +38,7 @@ namespace YALV.Core.Providers
                 {
                     string[] items = s.Split(new[] { Separator }, StringSplitOptions.RemoveEmptyEntries);
                     LogItem entry = CreateEntry(items, matches);
-                    entry.Logger = filter.Logger;
+                    entry.Number = filter.Number;
                     yield return entry;
                 }
             }            
